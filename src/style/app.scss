@@ -1,7 +1,15 @@
 // styles in src/style directory are applied to the whole page
-body {
-    margin: 0;
+body {    
+   background: linear-gradient(#ffffff 50%, rgba(255,255,255,0) 0) 0 0,
+radial-gradient(circle closest-side, #FFFFFF 53%, rgba(255,255,255,0) 0) 0 0,
+radial-gradient(circle closest-side, #FFFFFF 50%, rgba(255,255,255,0) 0) 55px 0 #48B;
+background-size:110px 200px;
+background-repeat:repeat-x;
+color:#666;
 }
 a {
     color: #03A9F4;
+}
+.heading-title{
+	text-align:center;
 }
