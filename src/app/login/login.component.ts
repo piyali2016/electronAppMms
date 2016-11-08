@@ -1,19 +1,27 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { ApiService } from '../shared/api.service';
 
+import { LoginModel } from './login.model';
+
+
 @Component({
-  selector: 'login-box',
+  selector: 'my-loginbox',
   template: require('./login.component.html'),
   styles: [require('./login.component.scss')],
   providers: [ApiService]
 })
 
-export class LoginComponent implements OnInit {
+export class LoginComponent {
 
-  constructor(private ls: ApiService) {}	
+  model = new LoginModel('', '');
+  submitted = false;
 
-  ngOnInit() {
+  constructor(private ls: ApiService) {
     console.log('Login');
   }
 
+  onSubmit() {
+    this.submitted = true;
+    console.log('hello');
+   }
 }

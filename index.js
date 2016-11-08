@@ -10,7 +10,16 @@ let mainWindow
 const npmLifecycle = process.env.npm_lifecycle_event
 function createWindow () {
   // Create the browser window.
-  mainWindow = new BrowserWindow({width: 800, height: 600, center: true, minimizable: true, alwaysOnTop: false, title: 'Electron App MMS', icon: '/img/fav.ico', autoHideMenuBar: true})
+  mainWindow = new BrowserWindow({
+    width: 800, 
+    height: 600, 
+    center: true, 
+    minimizable: true, 
+    alwaysOnTop: false, 
+    title: 'Electron App MMS', 
+    icon: 'file://${__dirname}/dist/img/fav.ico', 
+    autoHideMenuBar: true
+  })
   // and load the index.html of the app.
   mainWindow.loadURL(`file://${__dirname}/dist/index.html`)
 

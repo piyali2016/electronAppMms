@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'register-box',
+  selector: 'my-registerbox',
   template: require('./register.component.html'),
   styles: [require('./register.component.scss')]
 })

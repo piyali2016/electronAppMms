@@ -1,20 +1,37 @@
 <div class="container">
     <div class="row">
-        <div class="form_bg">
-            <form>
+        <div  class="form_bg">
+            <form id="loginForm"  #loginForm="ngForm">
                  <h2 class="text-center">Login Page</h2>
                  <a href="#register" class="pull-right">Create Account</a>  
 
                 <br/>
                 <div class="form-group">
-                    <input type="email" class="form-control" id="userid" placeholder="User id">
+                    <input type="email" class="form-control" id="userid"
+                           placeholder="User id" 
+                           [(ngModel)]="model.userid" name="userid" 
+                           required
+                           #userid="ngModel">
+                    <small class="errorMsg" [hidden]="userid.valid || (userid.pristine && !loginForm.submitted)">
+                        Email is required and format should be <i>john@doe.com</i>.
+                    </small>
                 </div>
                 <div class="form-group">
-                    <input type="password" class="form-control" id="pwd" placeholder="Password">
+                    <input type="password" class="form-control" id="pwd" 
+                            placeholder="Password"
+                            [(ngModel)]="model.pwd" name="pwd" 
+                            required #pwd="ngModel">
+                    <small class="errorMsg" class="errorMsg"  [hidden]="pwd.valid || pwd.pristine || pwd.touched">
+                            Password is required
+                    </small>
                 </div>
                 <br/>
                 <div class="align-center">
-                    <button type="submit" class="btn btn-primary" id="login">Login</button>
+                    <button type="button"  
+                            (click)="onSubmit()"
+                           [disabled]="!loginForm.form.valid" class="btn btn-primary" >
+                            Login
+                    </button>
                 </div>
             </form>
         </div>
