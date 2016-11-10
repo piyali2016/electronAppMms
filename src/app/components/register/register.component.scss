@@ -1,0 +1,20 @@
+// component styles are encapsulated and only applied to their components
+.form_bg {
+   background-color: #eee;
+    padding: 20px;
+    border-radius: 10px;
+    position: absolute;
+    border: 1px solid #fff;
+    margin: auto;
+    top: 123px;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: 320px;
+    height: 381px;
+}
+
+.align-center {
+    
+    text-align:center;
+}
