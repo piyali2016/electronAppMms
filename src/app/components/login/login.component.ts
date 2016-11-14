@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ApiService } from '../../services/api.service';
+import { UserDatabase } from '../../services/db/db.user.service';
 
 import { LoginModel } from './login.model';
 
@@ -8,20 +8,34 @@ import { LoginModel } from './login.model';
   selector: 'my-loginbox',
   template: require('./login.component.html'),
   styles: [require('./login.component.scss')],
-  providers: [ApiService]
+  providers: [UserDatabase]
 })
 
 export class LoginComponent {
 
   model = new LoginModel('', '');
   submitted = false;
+  loginError = '';
 
-  constructor(private ls: ApiService) {
+  constructor(private ds: UserDatabase) {
     console.log('Login');
   }
 
   onSubmit() {
     this.submitted = true;
-    this.ls.loginAuthenticateService(this.model);
+    this.loginAuthenticateService(this.model);
    }
+
+
+  loginAuthenticateService(loginModel) {
+     console.log(loginModel);
+     var userObj;
+     if(loginModel.userid && loginModel.pwd){
+        userObj = this.ds.findUserByQuery(loginModel);
+        console.log(userObj);
+     }else{
+      this.loginError = '';
+     }
+  }
+
 }

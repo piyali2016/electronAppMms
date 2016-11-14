@@ -3,7 +3,8 @@
         <div  class="form_bg">
             <form id="loginForm"  #loginForm="ngForm">
                  <h2 class="text-center">Login Page</h2>
-                 <a href="#register" class="pull-right">Create Account</a>  
+                 <a href="#register" class="pull-right">Create Account</a> <br> 
+                 <div class="alert alert-danger" *ngIf="loginError != ''">{{loginError}}</div>
                 <div class="form-group">
                     <input type="email" class="form-control" id="userid"
                            placeholder="User id" 

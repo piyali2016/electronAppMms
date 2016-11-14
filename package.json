@@ -34,6 +34,7 @@
     "@angular/platform-browser": "2.0.0-rc.5",
     "@angular/platform-browser-dynamic": "2.0.0-rc.5",
     "@angular/router": "3.0.0-rc.1",
+    "@types/nedb": "0.0.31",
     "debug": "^2.2.0",
     "electron-connect": "^0.4.2",
     "es6-shim": "^0.35.0",
@@ -87,7 +88,7 @@
     "tslint": "^3.4.0",
     "tslint-loader": "^2.1.0",
     "typedoc": "^0.4.2",
-    "typescript": "^1.8.10",
+    "typescript": "^1.8.0",
     "typings": "^1.0.4",
     "url-loader": "^0.5.6",
     "webpack": "^1.13.1"
