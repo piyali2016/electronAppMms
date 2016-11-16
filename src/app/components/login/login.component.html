@@ -4,11 +4,12 @@
             <form id="loginForm"  #loginForm="ngForm">
                  <h2 class="text-center">Login Page</h2>
                  <a href="#register" class="pull-right">Create Account</a> <br> 
-                 <div class="alert alert-danger" *ngIf="loginError != ''">{{loginError}}</div>
+                 <small class="alert alert-danger" *ngIf="loginError != ''">{{loginError}}</small><br> 
                 <div class="form-group">
                     <input type="email" class="form-control" id="userid"
                            placeholder="User id" 
                            [(ngModel)]="model.userid" name="userid" 
+                           (keyup) = "loginError = ''"
                            required
                            pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$"
                            #userid="ngModel">
@@ -20,6 +21,7 @@
                     <input type="password" class="form-control" id="pwd" 
                             placeholder="Password"
                             [(ngModel)]="model.pwd" name="pwd" 
+                            (keyup) = "loginError = ''"
                             required 
                             #pwd="ngModel">
                     <small class="errorMsg" class="errorMsg"  [hidden]="pwd.valid || (pwd.pristine && !loginForm.submitted)">

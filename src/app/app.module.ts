@@ -3,11 +3,11 @@ import { FormsModule }   from '@angular/forms';
 import { BrowserModule }  from '@angular/platform-browser';
 
 import { routing }        from './app.routing';
-import { ApiService }     from './services/api.service';
 
 import { AppComponent }   from './app.component';
 import { LoginComponent }  from './components/login/login.component';
 import { RegisterComponent }  from './components/register/register.component';
+import { HomeComponent }  from './components/home/home.component';
 
 @NgModule({
     imports:      [
@@ -18,9 +18,9 @@ import { RegisterComponent }  from './components/register/register.component';
     declarations: [
         AppComponent,
         LoginComponent,
-        RegisterComponent
+        RegisterComponent,
+        HomeComponent
     ],
-    providers: [ApiService],
     bootstrap:    [AppComponent]
 })
 export class AppModule {}

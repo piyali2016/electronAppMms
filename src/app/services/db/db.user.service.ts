@@ -1,59 +1,34 @@
-import * as Nedb from "nedb";
+import * as Nedb from 'nedb';
 
-
-export class UserDatabase
-{
+export class UserDatabase {
     public dbUser;
-    constructor ()
-    {
+    public returnObj = { success: false, error: ''};
+    constructor () {
         this.dbUser = new Nedb({ filename: './db.users.json', autoload: true });
     }
- 	
- 	insertuser(userObj) {
-        return new Promise((resolve, reject) => {
-            return this.dbUser.insert(userObj, ((err, newUser) => {
-                if ( err ) 
-                {
-                    reject(err);
-                }
-                else 
-                {
-                    resolve(newUser);
-                }
-            }))
-        }); 
-    }
 
-    findAll() {
+    insert(user) {
         return new Promise((resolve, reject) => {
-            return this.dbUser.find({}, ((err, userid) => {
-                if ( err ) 
-                {
+            return this.dbUser.insert(user, ((err, data) => {
+                if ( err ) {
                     reject(err);
-                }
-                else 
-                {
-                    resolve(userid);
+                } else {
+                    resolve(data);
                 }
             }));
-        })
+        });
     }
 
-    findUserByQuery(userQuery) {
-    	var returnObj = {userObj:'',err:false,errMsg:''};
-     	this.dbUser.find(userQuery, ((err, userObj) => {
-                if ( err ) 
-                {
-                   returnObj.err = true;
-                   returnObj.errMsg = err;
+
+    findUserByQuery( userQuery ) {
+        return new Promise((resolve, reject) => {
+            return this.dbUser.find(userQuery, ((err, data) => {
+                if ( err ) {
+                    reject(err);
+                } else {
+                    resolve(data);
                 }
-                else 
-                {
-                	returnObj.userObj = userObj;
-                }
-               return  returnObj;
             }));
+        });
     }
- 
-    
 }

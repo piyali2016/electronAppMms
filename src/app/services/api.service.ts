@@ -1,12 +1,6 @@
 import { Injectable } from '@angular/core';
 
-
-import { UserDatabase } from './db/db.user.service.ts';
-
 @Injectable()
 export class ApiService {
-  title = 'Services';
-
-
-
+  public INVALID_LOGIN = 'Invalid username/password. Please try again';
 }
